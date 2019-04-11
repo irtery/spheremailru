@@ -22,6 +22,3 @@ if __name__ == '__main__':
 
     with open('./index', 'wb') as f:
         pickle.dump(index, f)
-
-    with open('./words_dict', 'wb') as f:
-        pickle.dump(words_by_hash, f)
