@@ -76,6 +76,10 @@ if __name__ == '__main__':
         doc_id += 1
         urls.append(doc.url)
 
+    # for k,v in index_dict.items():
+    #     if k == u'путин':
+    #         print v
+
     precompress(index_dict)
 
     index = {}
