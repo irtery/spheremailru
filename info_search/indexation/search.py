@@ -109,7 +109,7 @@ class Tree:
 
     def evaluate_term(self):
         # print 'in evaluate_term'
-        hterm = mmh3.hash(self.data.encode('utf-8'), signed=False)
+        hterm = mmh3.hash(self.data.encode('utf-8'))
         if hterm in index_dict.keys():
             compr_docids = index_dict[hterm]
             # print self.data, encode_method
