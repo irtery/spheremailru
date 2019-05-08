@@ -4,7 +4,7 @@
 import varbyte
 import simple9
 import mmh3
-import pickle
+import cPickle
 import sys
 import codecs
 from query2tokens import extract_tokens
@@ -208,10 +208,10 @@ if __name__ == '__main__':
     sys.stdin = codecs.getreader('utf-8')(sys.stdin)
 
     with open('index', 'rb') as f:
-        index = pickle.load(f)
+        index = cPickle.load(f)
 
     with open('urls', 'rb') as f:
-        urls = pickle.load(f)
+        urls = cPickle.load(f)
 
     global index_dict
     global encode_method
@@ -250,7 +250,7 @@ if __name__ == '__main__':
         # print 'found to query', len(found_doc_ids.keys())
         doc_ids = sorted(found_doc_ids.keys())
 
-        print query
+        print query.encode('utf-8')
         print len(doc_ids)
         for doc_id in doc_ids:
             print urls[doc_id]

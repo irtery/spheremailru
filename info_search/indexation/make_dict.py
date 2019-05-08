@@ -4,11 +4,11 @@
 import varbyte
 import simple9
 import mmh3
-import pickle
+import cPickle
 
 if __name__ == '__main__':
     with open('index', 'rb') as f:
-        index = pickle.load(f)
+        index = cPickle.load(f)
 
     new_index_data = {}
     words_by_hash = {}
@@ -21,4 +21,4 @@ if __name__ == '__main__':
     index['data'] = new_index_data
 
     with open('./index', 'wb') as f:
-        pickle.dump(index, f)
+        cPickle.dump(index, f)

@@ -10,8 +10,10 @@ import sys
 import varbyte
 import simple9
 import mmh3
-import pickle
+import cPickle
 from doc2words import extract_words
+
+# import cProfile
 
 
 class DocumentStreamReader:
@@ -56,6 +58,7 @@ def compress(method, index_dict):
         return varbyte.compress(index_dict)
     elif method == 'simple9':
         return simple9.compress(index_dict)
+        # return cProfile.run('simple9.compress(index_dict)')
     else:
         print 'not supported yet'
         return index_dict
@@ -87,7 +90,7 @@ if __name__ == '__main__':
     index['data'] = compress(encode_method, index_dict)
 
     with open('./index', 'wb') as f:
-        pickle.dump(index, f)
+        cPickle.dump(index, f)
 
     with open('./urls', 'wb') as f:
-        pickle.dump(urls, f)
+        cPickle.dump(urls, f)
